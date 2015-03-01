@@ -1,0 +1,11 @@
+The XML for GUIs is complete. Code is partially complete. Can navigate between frames, but functionally
+not all buttons do what they are supposed to yet. Fillers put in place to simulate functionality. This 
+will be fixed when we have data structure and storage taken care of.
+
+ToDo:
+- Account class (use the same as before?)
+- How we will store data 
+  - will we keep data within the program, or write to external file?
+  - develop data storage code to write to XML file?
+- Functional changes or additions to current GUI
+- Aesthetic changes to current layout
