@@ -3,9 +3,11 @@ not all buttons do what they are supposed to yet. Fillers put in place to simula
 will be fixed when we have data structure and storage taken care of.
 
 ToDo:
-- Account class (use the same as before?)
 - How we will store data 
   - will we keep data within the program, or write to external file?
   - develop data storage code to write to XML file?
 - Functional changes or additions to current GUI
 - Aesthetic changes to current layout
+
+Do we want to pass a database object to each frame that references the XML file, or should we pass the 
+actual XML file?
