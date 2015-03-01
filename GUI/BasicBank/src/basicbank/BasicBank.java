@@ -27,19 +27,27 @@ public class BasicBank
                 {
                     public void run()
                     {
-                        JFileChooser chooser = new JFileChooser("read");
-                        chooser.showOpenDialog(null);
-                        File file = chooser.getSelectedFile();
+//                        JFileChooser chooser = new JFileChooser("read");
+//                        chooser.showOpenDialog(null);
+//                        File file = chooser.getSelectedFile();
 //                        JFrame frame = new FontFrame(file);
 //                        frame.setTitle("GridBagTest");
 //                        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //                        frame.setVisible(true);
                         
-                        JFrame frame = new LoginFrame(file);
-                        frame.setTitle("Login to Account");
-                        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                        frame.setVisible(true);
+                        JFrame frame = new LoginFrame(new File("XML/login.xml"));
+                        init(frame, "Login to Account");
+                        
+                        JFrame frame2 = new AddAccountFrame(new File("XML/addAccount.xml"));
+                        init(frame2, "Add Account");
                     }
                 });
+    }
+    
+    public static void init(JFrame frame, String title)
+    {
+        frame.setTitle(title);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
     }
 }

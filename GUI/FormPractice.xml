@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE gridbag SYSTEM "gridbag.dtd">
 
-<!-- XML Document used to create my Add Account dialogue box. -->
+<!-- XML Document used to create my GridBagTest dialogue box. -->
 <gridbag>
   <row>
     <cell anchor="EAST">
@@ -59,25 +59,25 @@
     </cell>
   </row>
   <row>
-	<cell gridwidth="2" weighty="100">
-		<bean id="bold">
-			<class>javax.swing.JCheckBox</class>
-			<property>
-				<name>text</name>
-				<value><string>Bold</string></value>
-			</property>
-		</bean>
-	</cell>
+  	<cell gridwidth="2" weighty="100">
+  		<bean id="bold">
+  			<class>javax.swing.JCheckBox</class>
+  			<property>
+  				<name>text</name>
+  				<value><string>Bold</string></value>
+  			</property>
+  		</bean>
+  	</cell>
   </row>
   <row>
-	<cell gridwidth="2" weighty="100">
-		<bean id="italic">
-			<class>javax.swing.JCheckBox</class>
-			<property>
-				<name>text</name>
-				<value><string>Italic</string></value>
-			</property>
-		</bean>
-	</cell>
+  	<cell gridwidth="2" weighty="100">
+  		<bean id="italic">
+  			<class>javax.swing.JCheckBox</class>
+  			<property>
+  				<name>text</name>
+  				<value><string>Italic</string></value>
+  			</property>
+  		</bean>
+  	</cell>
   </row>
 </gridbag>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gridbag SYSTEM "gridbag.dtd">
+
+<!-- XML Document used to create my Account Action form. -->
+
+<gridbag>
+	<row>
+		<cell anchor="EAST" gridx="0" gridy="0">
+			<bean>
+				<class>javax.swing.JLabel</class>
+				<property>
+					<name>text</name>
+					<value><string>Name: </string></value>
+				</property>
+			</bean>
+		</cell>
+		<cell gridx="1" gridy="0" gridwidth="3" fill="HORIZONTAL" weightx="100">
+			<bean id="name">
+				<class>javax.swing.JTextArea</class>
+				<property>
+		          <name>border</name>
+		          <value><bean>
+		            <class>javax.swing.border.EtchedBorder</class>
+		          </bean></value>
+		        </property>
+		    </bean>
+		</cell>
+	</row>
+	<row>
+		<cell anchor="EAST" gridx="0" gridy="1">
+			<bean>
+				<class>javax.swing.JLabel</class>
+				<property>
+					<name>text</name>
+					<value><string>Password: </string></value>
+				</property>
+			</bean>
+		</cell>
+		<cell gridx="1" gridy="1" gridwidth="3" fill="HORIZONTAL" weightx="100">
+			<bean id="password">
+				<class>javax.swing.JTextArea</class>
+				<property>
+		          <name>border</name>
+		          <value><bean>
+		            <class>javax.swing.border.EtchedBorder</class>
+		          </bean></value>
+		        </property>
+		    </bean>
+		</cell>
+	</row>
+	<row>
+		<cell anchor="EAST" gridx="0" gridy="2">
+			<bean>
+				<class>javax.swing.JLabel</class>
+				<property>
+					<name>text</name>
+					<value><string>Balance: </string></value>
+				</property>
+			</bean>
+		</cell>
+		<cell gridx="1" gridy="2" gridwidth="3" fill="HORIZONTAL" weightx="100">
+			<bean id="balance">
+				<class>javax.swing.JTextArea</class>
+				<property>
+		          <name>border</name>
+		          <value><bean>
+		            <class>javax.swing.border.EtchedBorder</class>
+		          </bean></value>
+		        </property>
+		    </bean>
+		</cell>
+	</row>
+	<row>
+		<cell anchor="EAST" gridx="0" gridy="3">
+			<bean>
+				<class>javax.swing.JLabel</class>
+				<property>
+					<name>text</name>
+					<value><string>Checking: </string></value>
+				</property>
+			</bean>
+		</cell>
+		<cell gridx="1" gridy="3">
+			<bean id="checking">
+				<class>javax.swing.JRadioButton</class>
+				<property>
+					<name>selected</name>
+					<value><boolean>true</boolean></value>
+				</property>
+			</bean>
+		</cell>
+		<cell anchor="EAST" gridx="2" gridy="3">
+			<bean>
+				<class>javax.swing.JLabel</class>
+				<property>
+					<name>text</name>
+					<value><string>Savings: </string></value>
+				</property>
+			</bean>
+		</cell>
+		<cell gridx="3" gridy="3">
+			<bean id="savings">
+				<class>javax.swing.JRadioButton</class>
+			</bean>
+		</cell>
+	</row>
+	<row>
+		<cell gridx="1" gridy="4" fill="BOTH" weighty="100" weightx="100">
+			<bean id="save_button">
+				<class>javax.swing.JButton</class>
+				<property>
+					<name>text</name>
+					<value><string>Save</string></value>
+				</property>
+			</bean>
+		</cell>
+		<cell gridx="2" gridy="4" fill="BOTH" weighty="100" weightx="100">
+			<bean id="cancel_button">
+				<class>javax.swing.JButton</class>
+				<property>
+					<name>text</name>
+					<value><string>Cancel</string></value>
+				</property>
+			</bean>
+		</cell>
+	</row>
+</gridbag>
