@@ -25,8 +25,9 @@ public class LoginFrame extends JFrame
     private JTextArea password;
     
     @SuppressWarnings("unchecked")
-    public LoginFrame(File file)
+    public LoginFrame()
     {
+        File file = new File("XML/login.xml");
         gridbag = new GridBagPane(file);
         add(gridbag);
         

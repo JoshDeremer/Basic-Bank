@@ -11,8 +11,7 @@ package basicbank;
  */
 
 import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class BasicBank 
@@ -30,16 +29,17 @@ public class BasicBank
 //                        JFileChooser chooser = new JFileChooser("read");
 //                        chooser.showOpenDialog(null);
 //                        File file = chooser.getSelectedFile();
-//                        JFrame frame = new FontFrame(file);
-//                        frame.setTitle("GridBagTest");
-//                        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//                        frame.setVisible(true);
+//                        JFrame frame = new LoginFrame(new File("XML/login.xml"));
+//                        init(frame, "Login to Account");
+//                        JFrame frame2 = new AddAccountFrame(new File("XML/addAccount.xml"));
+//                        init(frame2, "Add Account");
+                        ArrayList<String> accounts = new ArrayList<String>();
+                        accounts.add("mine");
+                        accounts.add("yours");
+                        accounts.add("his");
                         
-                        JFrame frame = new LoginFrame(new File("XML/login.xml"));
-                        init(frame, "Login to Account");
-                        
-                        JFrame frame2 = new AddAccountFrame(new File("XML/addAccount.xml"));
-                        init(frame2, "Add Account");
+                        JFrame frame = new BankFrame(accounts);
+                        init(frame,"Basic-Bank");
                     }
                 });
     }

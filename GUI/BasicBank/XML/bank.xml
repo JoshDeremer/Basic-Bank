@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gridbag SYSTEM "gridbag.dtd">
+
+<!-- XML Document used to create my Bank form. -->
+
+<gridbag>
+	<row>
+		<cell gridx="0" gridy="0" fill="BOTH" weightx="100">
+			<bean id="add_button">
+				<class>javax.swing.JButton</class>
+				<property>
+					<name>text</name>
+					<value><string>Add Account</string></value>
+				</property>
+			</bean>
+		</cell>
+		<cell gridx="1" gridy="0" fill="BOTH" weightx="100">
+			<bean id="remove_button">
+				<class>javax.swing.JButton</class>
+				<property>
+					<name>text</name>
+					<value><string>Remove Account</string></value>
+				</property>
+			</bean>
+		</cell>
+		<cell gridx="2" gridy="0" fill="BOTH" weightx="100">
+			<bean id="use_button">
+				<class>javax.swing.JButton</class>
+				<property>
+					<name>text</name>
+					<value><string>Use Account</string></value>
+				</property>
+			</bean>
+		</cell>
+		<cell gridx="3" gridy="0" fill="BOTH" weightx="100">
+			<bean id="interest_button">
+				<class>javax.swing.JButton</class>
+				<property>
+					<name>text</name>
+					<value><string>Interest</string></value>
+				</property>
+			</bean>
+		</cell>
+	</row>
+	<row>
+		<cell gridx="0" gridy="1" fill="BOTH" weighty="100" weightx="100">
+			<bean id="account">
+				<class>javax.swing.JList</class>
+				<property>
+					<name>visibleRowCount</name>
+					<value><int>10</int></value>
+				</property>
+			</bean>
+		</cell>
+	</row>
+</gridbag>

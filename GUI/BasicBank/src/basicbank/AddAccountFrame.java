@@ -28,8 +28,9 @@ public class AddAccountFrame extends JFrame
     private JRadioButton savings;
     
     @SuppressWarnings("unchecked")
-    public AddAccountFrame(File file)
+    public AddAccountFrame()
     {
+        File file = new File("XML/addAccount.xml");
         gridbag = new GridBagPane(file);
         add(gridbag);
         
