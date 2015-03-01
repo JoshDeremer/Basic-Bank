@@ -39,6 +39,8 @@ public class LoginFrame extends JFrame
         ActionListener login_click = new ActionListener(){
             public void actionPerformed(ActionEvent event){
                 //login
+                if(true)
+                    showAccount("John");
             }};
         
         ActionListener cancel_click = new ActionListener(){
@@ -53,5 +55,13 @@ public class LoginFrame extends JFrame
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation((dim.width/2-this.getSize().width/2), (dim.height/2-this.getSize().height/2));
         this.setResizable(false);
+    }
+    
+    public void showAccount(String account)
+    {
+        JFrame add = new AccountFrame();
+        add.setTitle(account + "'s Account");
+        add.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        add.setVisible(true);
     }
 }

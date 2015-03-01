@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gridbag SYSTEM "gridbag.dtd">
+
+<!-- XML Document used to create my Interest form. -->
+
+<gridbag>
+	<row>
+		<cell gridx="0" gridy="0" fill="HORIZONTAL" weightx="100">
+			<bean id="interest">
+				<class>javax.swing.JTextArea</class>
+				<property>
+		          <name>border</name>
+		          <value><bean>
+		            <class>javax.swing.border.EtchedBorder</class>
+		          </bean></value>
+		        </property>
+		        <property>
+          			<name>editable</name>
+			    	<value><boolean>false</boolean></value>
+			    </property>
+			    <property>
+			        <name>lineWrap</name>
+			        <value><boolean>true</boolean></value>
+			    </property>
+		    </bean>
+		</cell>
+	</row>
+</gridbag>

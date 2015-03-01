@@ -28,6 +28,7 @@ public class BankFrame extends JFrame
     private JButton interest_button;
     private JList account;
     
+    @SuppressWarnings("unchecked")
     public BankFrame(ArrayList<String> accounts)
     {
         File file = new File("XML/bank.xml");
@@ -67,6 +68,10 @@ public class BankFrame extends JFrame
         ActionListener interest_click = new ActionListener(){
             public void actionPerformed(ActionEvent event){
                 // interest
+                JFrame add = new InterestFrame();
+                add.setTitle("Interest");
+                add.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                add.setVisible(true);
             }};
         
         add_button.addActionListener(add_click);
