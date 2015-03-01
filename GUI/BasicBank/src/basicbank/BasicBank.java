@@ -30,8 +30,13 @@ public class BasicBank
                         JFileChooser chooser = new JFileChooser("read");
                         chooser.showOpenDialog(null);
                         File file = chooser.getSelectedFile();
-                        JFrame frame = new FontFrame(file);
-                        frame.setTitle("GridBagTest");
+//                        JFrame frame = new FontFrame(file);
+//                        frame.setTitle("GridBagTest");
+//                        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//                        frame.setVisible(true);
+                        
+                        JFrame frame = new LoginFrame(file);
+                        frame.setTitle("Login to Account");
                         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         frame.setVisible(true);
                     }

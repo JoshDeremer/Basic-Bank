@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gridbag SYSTEM "gridbag.dtd">
+
+<!-- XML Document used to create my Login to Account form. -->
+
+<gridbag>
+	<row>
+		<cell anchor="EAST" gridx="0" gridy="0">
+			<bean>
+				<class>javax.swing.JLabel</class>
+				<property>
+					<name>text</name>
+					<value><string>Login: </string></value>
+				</property>
+			</bean>
+		</cell>
+		<cell gridx="1" gridy="0" gridwidth="3" fill="HORIZONTAL" weightx="100">
+			<bean id="login">
+				<class>javax.swing.JTextArea</class>
+				<property>
+		          <name>border</name>
+		          <value><bean>
+		            <class>javax.swing.border.EtchedBorder</class>
+		          </bean></value>
+		        </property>
+		    </bean>
+		</cell>
+	</row>
+	<row>
+		<cell anchor="EAST" gridx="0" gridy="1">
+			<bean>
+				<class>javax.swing.JLabel</class>
+				<property>
+					<name>text</name>
+					<value><string>Password: </string></value>
+				</property>
+			</bean>
+		</cell>
+		<cell gridx="1" gridy="1" gridwidth="3" fill="HORIZONTAL" weightx="100">
+			<bean id="password">
+				<class>javax.swing.JTextArea</class>
+				<property>
+		          <name>border</name>
+		          <value><bean>
+		            <class>javax.swing.border.EtchedBorder</class>
+		          </bean></value>
+		        </property>
+		    </bean>
+		</cell>
+	</row>
+	<row>
+		<cell gridx="1" gridy="2" fill="BOTH" weighty="100" weightx="100">
+			<bean id="login_button">
+				<class>javax.swing.JButton</class>
+				<property>
+					<name>text</name>
+					<value><string>Login</string></value>
+				</property>
+			</bean>
+		</cell>
+		<cell gridx="2" gridy="2" fill="BOTH" weighty="100" weightx="100">
+			<bean id="cancel_button">
+				<class>javax.swing.JButton</class>
+				<property>
+					<name>text</name>
+					<value><string>Cancel</string></value>
+				</property>
+			</bean>
+		</cell>
+		<cell gridx="3" gridy="2">
+		</cell>
+	</row>
+</gridbag>
