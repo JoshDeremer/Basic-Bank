@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE gridbag SYSTEM "gridbag.dtd">
 
-<!-- XML Document used to create my Do Something form. -->
+<!-- XML Document used to create my Account form. -->
 
 <gridbag>
 	<row>
