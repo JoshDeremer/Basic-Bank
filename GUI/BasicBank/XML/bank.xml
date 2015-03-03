@@ -43,7 +43,7 @@
 		</cell>
 	</row>
 	<row>
-		<cell gridx="0" gridy="1" fill="BOTH" weighty="100" weightx="100">
+		<cell gridx="1" gridy="1" gridwidth="2" fill="BOTH" weighty="100" weightx="100">
 			<bean id="account">
 				<class>javax.swing.JList</class>
 				<property>
