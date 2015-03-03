@@ -9,6 +9,7 @@ package basicbank;
 /**
  *
  * @author Josh
+ * @author of Database communication Kei'Shawn
  */
 
 import java.awt.*;
@@ -26,6 +27,8 @@ public class AddAccountFrame extends JFrame
     private JTextArea balance;
     private JRadioButton checking;
     private JRadioButton savings;
+    private String text_Name, text_Psswrd;
+    private int text_balance;
     
     @SuppressWarnings("unchecked")
     public AddAccountFrame()
@@ -48,7 +51,15 @@ public class AddAccountFrame extends JFrame
         
         ActionListener save_click = new ActionListener(){
             public void actionPerformed(ActionEvent event){
-                //save
+                Database stored_Accts = new Database(file);
+                text_Name = name.getText();
+                text_Psswrd = password.getText();
+                text_balance = Integer.parseInt(balance.getText());
+          
+               if(checking.isSelected())
+                   stored_Accts.addAccount(text_Name, text_Psswrd, text_balance, true);
+               if(savings.isSelected())
+                   stored_Accts.addAccount(text_Name, text_Psswrd, text_balance, false);
             }};
         
         ActionListener cancel_click = new ActionListener(){
