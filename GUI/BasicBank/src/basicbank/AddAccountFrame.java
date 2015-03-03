@@ -31,7 +31,7 @@ public class AddAccountFrame extends JFrame
     private int text_balance;
     
     @SuppressWarnings("unchecked")
-    public AddAccountFrame()
+    public AddAccountFrame(Database data)
     {
         File file = new File("XML/addAccount.xml");
         gridbag = new GridBagPane(file);
@@ -51,21 +51,20 @@ public class AddAccountFrame extends JFrame
         
         ActionListener save_click = new ActionListener(){
             public void actionPerformed(ActionEvent event){
-                Database stored_Accts = new Database(file);
+                //Database stored_Accts = new Database(file);
                 text_Name = name.getText();
                 text_Psswrd = password.getText();
                 text_balance = Integer.parseInt(balance.getText());
                 System.out.println("in here");
           
                if(checking.isSelected())
-                   stored_Accts.addAccount(text_Name, text_Psswrd, text_balance, true);
-                   
+
+                   data.addAccount(text_Name, text_Psswrd, text_balance, true);
                if(savings.isSelected())
-                   stored_Accts.addAccount(text_Name, text_Psswrd, text_balance, false);
-               
-               if(!(stored_Accts==null))
-                       for(int i =0; i>stored_Accts.db.size(); i++)
-                           System.out.println(i);
+                   data.addAccount(text_Name, text_Psswrd, text_balance, false);
+              
+               dispose();
+
             }};
         
         ActionListener cancel_click = new ActionListener(){
