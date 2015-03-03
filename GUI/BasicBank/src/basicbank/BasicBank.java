@@ -11,6 +11,7 @@ package basicbank;
  */
 
 import java.awt.*;
+import java.io.File;
 import java.util.ArrayList;
 import javax.swing.*;
 
@@ -23,9 +24,9 @@ public class BasicBank
     public static void main(String[] args) 
     {
         EventQueue.invokeLater(new Runnable()
-                {
-                    public void run()
-                    {
+        {
+            public void run()
+            {
 //                        JFileChooser chooser = new JFileChooser("read");
 //                        chooser.showOpenDialog(null);
 //                        File file = chooser.getSelectedFile();
@@ -33,15 +34,19 @@ public class BasicBank
 //                        init(frame, "Login to Account");
 //                        JFrame frame2 = new AddAccountFrame(new File("XML/addAccount.xml"));
 //                        init(frame2, "Add Account");
-                        ArrayList<String> accounts = new ArrayList<String>();
-                        accounts.add("mine");
-                        accounts.add("yours");
-                        accounts.add("his");
-                        
-                        JFrame frame = new BankFrame(accounts);
-                        init(frame,"Basic-Bank");
-                    }
-                });
+                //ArrayList<Account> accounts = new ArrayList<Account>();
+
+                ArrayList<Account> accounts = new ArrayList<Account>();
+                accounts.add(new CheckingAccount(300, "mine", "pass"));
+                accounts.add(new CheckingAccount(300, "yours", "pass"));
+                accounts.add(new CheckingAccount(300, "mine", "pass"));
+
+                Database database = new Database(accounts,new File("Database.xml"));
+
+                JFrame frame = new BankFrame(database);
+                init(frame,"Basic-Bank");
+            }
+        });
     }
     
     public static void init(JFrame frame, String title)

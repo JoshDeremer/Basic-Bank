@@ -15,6 +15,8 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.*;
 import java.util.ArrayList;
 import javax.swing.*;
@@ -29,7 +31,7 @@ public class BankFrame extends JFrame
     private JList account;
     
     @SuppressWarnings("unchecked")
-    public BankFrame(ArrayList<String> accounts)
+    public BankFrame(Database data)
     {
         File file = new File("XML/bank.xml");
         gridbag = new GridBagPane(file);
@@ -41,11 +43,49 @@ public class BankFrame extends JFrame
         interest_button = (JButton) gridbag.get("interest_button");
         account = (JList) gridbag.get("account");
         
-        initList(accounts);
+        initList(data);
+        
+        WindowListener frame_focus = new WindowListener(){
+            @Override
+            public void windowOpened(WindowEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+                    initList(data);
+                    //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        };
         
         ActionListener add_click = new ActionListener(){
             public void actionPerformed(ActionEvent event){
-                JFrame add = new AddAccountFrame();
+                JFrame add = new AddAccountFrame(data);
                 add.setTitle("Add Account");
                 add.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 add.setVisible(true);
@@ -53,8 +93,8 @@ public class BankFrame extends JFrame
         
         ActionListener remove_click = new ActionListener(){
             public void actionPerformed(ActionEvent event){
-                accounts.remove((String)account.getSelectedValue());
-                initList(accounts);
+                data.removeAccount((String)account.getSelectedValue());
+                initList(data);
             }};
         
         ActionListener use_click = new ActionListener(){
@@ -74,6 +114,7 @@ public class BankFrame extends JFrame
                 add.setVisible(true);
             }};
         
+        this.addWindowListener(frame_focus);
         add_button.addActionListener(add_click);
         remove_button.addActionListener(remove_click);
         use_button.addActionListener(use_click);
@@ -84,11 +125,15 @@ public class BankFrame extends JFrame
         this.setLocation((dim.width/2-this.getSize().width/2), (dim.height/2-this.getSize().height/2));
     }
     
-    public void initList(ArrayList<String> accounts)
+    public void initList(Database data)
     {
         DefaultListModel<String> list = new DefaultListModel<String>();
-        for (int i = 0; i < accounts.size(); i++)
-            list.addElement(accounts.get(i));
+        ArrayList<String> holders = data.getHolders();
+        
+        for(String str: holders)
+        {
+            list.addElement(str);
+        }
         account.setModel(list);
     }
 }
