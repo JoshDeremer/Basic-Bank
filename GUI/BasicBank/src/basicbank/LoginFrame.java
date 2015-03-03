@@ -23,6 +23,11 @@ public class LoginFrame extends JFrame
     private JButton cancel_button;
     private JTextArea login;
     private JTextArea password;
+    // Captcha labels and text area defined.
+    private JLabel captcha;
+    private JLabel captcha2;
+    private JTextArea captcha_try;
+    private JLabel failure;
     
     @SuppressWarnings("unchecked")
     public LoginFrame()
@@ -35,6 +40,11 @@ public class LoginFrame extends JFrame
         cancel_button = (JButton) gridbag.get("cancel_button");
         login = (JTextArea) gridbag.get("login");
         password = (JTextArea) gridbag.get("password");
+        // Captcha labels and text area instantiated. Use after this point.
+        captcha = (JLabel) gridbag.get("captcha");
+        captcha2 = (JLabel) gridbag.get("captcha2");
+        captcha_try = (JTextArea) gridbag.get("captcha_try");
+        failure = (JLabel) gridbag.get("failure");
         
         ActionListener login_click = new ActionListener(){
             public void actionPerformed(ActionEvent event){
