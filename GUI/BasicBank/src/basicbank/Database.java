@@ -8,6 +8,8 @@ package basicbank;
 
 import java.io.File;
 import java.util.ArrayList;
+import org.w3c.dom.Document;
+import xmlio.XMLIO;
 
 /**
  *
@@ -15,19 +17,25 @@ import java.util.ArrayList;
  */
 public class Database 
 {
-     ArrayList<Account> db;
+
+    private ArrayList<Account> db;
+
     File file;
+
 
     public Database(File file)
     {
         db = new ArrayList<Account>();
-        this.file = file;
+        XMLIO io = new XMLIO();
+        
+        Document doc = io.ReadXMLFile(file);
+        
+        //parse document for data
     }
     
     public Database(ArrayList<Account> init, File file)
     {
         this.db = init;
-        this.file = file;
     }
     
     public void addAccount(String holder, String password, int balance, boolean checking)
@@ -86,5 +94,22 @@ public class Database
     private void writeToFile()
     {
         // Write the db to a file?
+    }
+    
+    public int getSize()
+    {
+        return db.size();
+    }
+    
+    public ArrayList<String> getHolders()
+    {
+        ArrayList<String> holders = new ArrayList<String>();
+        
+        for(Account a : db)
+        {
+            holders.add(a.holder);
+        }
+        
+        return holders;
     }
 }
