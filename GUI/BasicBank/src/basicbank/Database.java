@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class Database 
 {
-    private ArrayList<Account> db;
+     ArrayList<Account> db;
     File file;
 
     public Database(File file)
@@ -35,10 +35,12 @@ public class Database
         if(checking == true){
             CheckingAccount chck = new CheckingAccount(balance, holder, password);
             db.add(chck);
+           
         }
         else{
             SavingsAccount svngs = new SavingsAccount(balance, holder, password);
             db.add(svngs);
+            
         }
             
     

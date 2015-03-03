@@ -55,11 +55,17 @@ public class AddAccountFrame extends JFrame
                 text_Name = name.getText();
                 text_Psswrd = password.getText();
                 text_balance = Integer.parseInt(balance.getText());
+                System.out.println("in here");
           
                if(checking.isSelected())
                    stored_Accts.addAccount(text_Name, text_Psswrd, text_balance, true);
+                   
                if(savings.isSelected())
                    stored_Accts.addAccount(text_Name, text_Psswrd, text_balance, false);
+               
+               if(!(stored_Accts==null))
+                       for(int i =0; i>stored_Accts.db.size(); i++)
+                           System.out.println(i);
             }};
         
         ActionListener cancel_click = new ActionListener(){
