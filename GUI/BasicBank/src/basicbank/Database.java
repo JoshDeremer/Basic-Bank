@@ -30,16 +30,25 @@ public class Database
         this.file = file;
     }
     
-    public boolean addAccount(String holder, String password, int balance, boolean checking)
+    public void addAccount(String holder, String password, int balance, boolean checking)
     {
-        // Add account
-        return true;
+        if(checking == true){
+            CheckingAccount chck = new CheckingAccount(balance, holder, password);
+            db.add(chck);
+        }
+        else{
+            SavingsAccount svngs = new SavingsAccount(balance, holder, password);
+            db.add(svngs);
+        }
+            
+    
+        
     }
     
-    public boolean removeAccount(String holder)
+    public void removeAccount(String holder)
     {
         // Remove account
-        return true;
+        
     }
     
     public int getBalance(String holder, String password)
