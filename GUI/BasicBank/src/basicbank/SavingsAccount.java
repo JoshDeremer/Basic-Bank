@@ -5,7 +5,7 @@ package basicbank;
  */
 public class SavingsAccount extends Account
 {
-    protected int maxWithdrawls = 5, currentWithdrawls = 0;
+    protected int maxWithdrawals = 5, currentWithdrawals = 0;
     
     public SavingsAccount(double balance, String holder, String password)
     {
@@ -24,9 +24,9 @@ public class SavingsAccount extends Account
         if(!authenticate(password))
             return;
         
-        currentWithdrawls++;
+        currentWithdrawals++;
         
-        if(currentWithdrawls >= maxWithdrawls)
+        if(currentWithdrawals >= maxWithdrawals)
         {
             // 10 dollar fee for excess withdraw attempts
             balance -=10;
@@ -57,7 +57,7 @@ public class SavingsAccount extends Account
             return CompoundResult.PENALTY;
         }
         
-        this.currentWithdrawls = 0;
+        this.currentWithdrawals = 0;
         
         return CompoundResult.NONE;
     }
