@@ -46,12 +46,12 @@ public class Database
     public void addAccount(String holder, String password, int balance, boolean checking)
     {
         if(checking == true){
-            CheckingAccount chck = new CheckingAccount(balance, holder, password);
+            CheckingAccount chck = new CheckingAccount(balance, holder, password, "Checking");
             db.add(chck);
            
         }
         else{
-            SavingsAccount svngs = new SavingsAccount(balance, holder, password);
+            SavingsAccount svngs = new SavingsAccount(balance, holder, password, "Savings");
             db.add(svngs);
             
         } 
@@ -91,16 +91,16 @@ public class Database
         return 0;
     }
     
-    public void withdraw(int amount)
+    public void withdraw(int amount, Account acct)
     {
         // Withdraw
-       
+        if(verifyAcct(acct))
+            acct.withdraw(amount);
     }
     
-    public boolean deposit(int amount)
+    public void deposit(int amount, Account acct)
     {
-        // Deposit
-        return true;
+        acct.deposit(amount);
     }
     
     private void writeToFile()
@@ -141,4 +141,14 @@ public class Database
         return db.get(temp);
     }
     
+    public boolean verifyAcct(Account acct){
+        boolean temp= false;
+        for(Account a:db){
+            if((a.holder.compareTo(acct.holder)==0) && (a.password.compareTo(acct.password)==0))
+                    temp = true;
+        }
+      return temp;
+        
+    }
+
 }

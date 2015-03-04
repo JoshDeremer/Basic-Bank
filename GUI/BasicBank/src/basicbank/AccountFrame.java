@@ -43,12 +43,15 @@ public class AccountFrame extends JFrame
             public void actionPerformed(ActionEvent event){
                 // withdraw
                 
-                //data.withdraw
+                data.withdraw(Integer.parseInt(value.getText()), acct);
+                current_balance.setText("Current Balance: " + Integer.toString(acct.getBalance()));
             }};
         
         ActionListener deposit_click = new ActionListener(){
             public void actionPerformed(ActionEvent event){
                 // deposit
+                data.deposit(Integer.parseInt(value.getText()), acct);
+                current_balance.setText("Current Balance: " + Integer.toString(acct.getBalance()));
             }};
         
         withdraw_button.addActionListener(withdraw_click);

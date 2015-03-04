@@ -10,6 +10,7 @@ public abstract class Account
     protected String holder;
     protected String password;
     protected double rate = .2;
+    protected String accType = "";
     
     public enum CompoundResult
     {
@@ -18,23 +19,21 @@ public abstract class Account
         PENALTY
     };
     
-    public Account(double balance, String holder, String password)
+    public Account(double balance, String holder, String password, String accType)
     {
         this.balance = balance;
         this.holder = holder;
         this.password = password;
+        this.accType = accType;
     }
     
-    protected void deposit(double amount, String password)
+    protected void deposit(int amount)
     {
-        if(!authenticate(password))
-            return;
-        
         if(amount > 0)
             balance+= amount;
     }
     
-    protected abstract void withdraw(double amount, String password);
+    protected abstract void withdraw(int amount);
     
     protected Double getBalance(String password)
     {

@@ -63,6 +63,7 @@ public class LoginFrame extends JFrame
                    {
                        acct_Permssn = data.setAccount(text_holder, text_psswrd);
                        showAccount(acct_Permssn, data);
+                       dispose();
                    }
                    else 
                    {  failure.setText("Sorry Wrong Password!");}
@@ -87,7 +88,7 @@ public class LoginFrame extends JFrame
     public void showAccount(Account acct, Database data)
     {
         JFrame add = new AccountFrame(data, acct);
-        add.setTitle(acct.holder + "'s Account");
+        add.setTitle(acct.holder + "'s " + acct.accType + " Account");
         add.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         add.setVisible(true);
     }

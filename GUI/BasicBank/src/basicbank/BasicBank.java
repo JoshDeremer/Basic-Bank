@@ -38,9 +38,9 @@ public class BasicBank
                 //ArrayList<Account> accounts = new ArrayList<Account>();
 
                 ArrayList<Account> accounts = new ArrayList<Account>();
-               accounts.add(new CheckingAccount(300, "mine", "pass"));
-               accounts.add(new CheckingAccount(300, "yours", "pass"));
-               accounts.add(new CheckingAccount(300, "mine", "pass"));
+               accounts.add(new CheckingAccount(300, "mine", "pass", "Checking"));
+               accounts.add(new CheckingAccount(300, "yours", "pass", "Checking"));
+               accounts.add(new CheckingAccount(300, "mine", "pass", "Checking"));
                 
             
                 

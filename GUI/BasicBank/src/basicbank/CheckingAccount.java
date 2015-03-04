@@ -7,6 +7,7 @@ package basicbank;
 public class CheckingAccount extends Account
 {
     protected int minimumBalance = 50;
+    protected String accType;
     
     /**
      * This method initializes a checking account.
@@ -14,9 +15,11 @@ public class CheckingAccount extends Account
      * @param holder the name of the account owner
      * @param password the password for the account
      */
-    public CheckingAccount(double balance, String holder, String password)
+    public CheckingAccount(double balance, String holder, String password, String accType)
     {
-        super(balance, holder, password);
+        
+        super(balance, holder, password, accType);
+        
         
         rate = .1;
     }
@@ -26,11 +29,8 @@ public class CheckingAccount extends Account
      * @param amount amount of funds to be withdrawn
      * @param password the password for the account
      */
-    protected @Override void withdraw(double amount, String password)
+    protected @Override void withdraw(int amount)
     {
-        if(!authenticate(password))
-            return;
-        
         if(amount > 0)
             balance -= amount;
     }

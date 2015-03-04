@@ -6,11 +6,12 @@ package basicbank;
 public class SavingsAccount extends Account
 {
     protected int maxWithdrawals = 5, currentWithdrawals = 0;
+    protected String accType;
     
-    public SavingsAccount(double balance, String holder, String password)
+    public SavingsAccount(double balance, String holder, String password, String accType)
     {
-        super(balance, holder, password);
-        
+        super(balance, holder, password, accType);
+       
         rate = 0.05;
     }
     
@@ -19,11 +20,8 @@ public class SavingsAccount extends Account
      * @param amount amount of funds to be withdrawn
      * @param password the password for the account
      */
-    protected @Override void withdraw(double amount, String password)
+    protected @Override void withdraw(int amount)
     {
-        if(!authenticate(password))
-            return;
-        
         currentWithdrawals++;
         
         if(currentWithdrawals >= maxWithdrawals)
