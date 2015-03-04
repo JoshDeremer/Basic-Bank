@@ -65,7 +65,7 @@ public class LoginFrame extends JFrame
                        showAccount(acct_Permssn, data);
                    }
                    else 
-                       failure.setText("Sorry Wrong Password!");
+                   {  failure.setText("Sorry Wrong Password!");}
                  
                 
             }};
