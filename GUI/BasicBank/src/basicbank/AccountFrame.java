@@ -24,7 +24,7 @@ public class AccountFrame extends JFrame
     private JTextArea value;
     
     @SuppressWarnings("unchecked")
-    public AccountFrame()
+    public AccountFrame(Database data)
     {
         File file = new File("XML/account.xml");
         gridbag = new GridBagPane(file);
@@ -37,6 +37,8 @@ public class AccountFrame extends JFrame
         ActionListener withdraw_click = new ActionListener(){
             public void actionPerformed(ActionEvent event){
                 // withdraw
+                
+                //data.withdraw
             }};
         
         ActionListener deposit_click = new ActionListener(){

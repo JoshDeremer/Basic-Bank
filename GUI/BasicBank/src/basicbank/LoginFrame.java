@@ -30,7 +30,7 @@ public class LoginFrame extends JFrame
     private JLabel failure;
     
     @SuppressWarnings("unchecked")
-    public LoginFrame()
+    public LoginFrame(Database data)
     {
         File file = new File("XML/login.xml");
         gridbag = new GridBagPane(file);
@@ -49,8 +49,10 @@ public class LoginFrame extends JFrame
         ActionListener login_click = new ActionListener(){
             public void actionPerformed(ActionEvent event){
                 //login
+                
+                
                 if(true)
-                    showAccount("John");
+                    showAccount("John", data);
             }};
         
         ActionListener cancel_click = new ActionListener(){
@@ -67,9 +69,9 @@ public class LoginFrame extends JFrame
         this.setResizable(false);
     }
     
-    public void showAccount(String account)
+    public void showAccount(String account, Database data)
     {
-        JFrame add = new AccountFrame();
+        JFrame add = new AccountFrame(data);
         add.setTitle(account + "'s Account");
         add.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         add.setVisible(true);

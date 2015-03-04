@@ -26,6 +26,7 @@ public class Database
     public Database(File file)
     {
         db = new ArrayList<Account>();
+        this.file=file;
         XMLIO io = new XMLIO();
         
         Document doc = io.ReadXMLFile(file);
@@ -35,7 +36,7 @@ public class Database
     
     public Database(ArrayList<Account> init, File file)
     {
-        this.db = init;
+        db = init;
     }
     
     public void addAccount(String holder, String password, int balance, boolean checking)
@@ -49,19 +50,32 @@ public class Database
             SavingsAccount svngs = new SavingsAccount(balance, holder, password);
             db.add(svngs);
             
-        }
-            
-    
-        
+        } 
     }
     
     public void removeAccount(String holder)
     {
         // Remove account
+        int index = getIndex(holder);
+		
+		if( index < 0)
+			return;
+		
+		db.remove(index);
         
     }
     
-    public int getBalance(String holder, String password)
+    public int getIndex(String holder)
+	{
+		for(Account acct : db)
+		{
+			if(acct.holder.compareTo(holder) == 0)
+				return db.indexOf(acct);
+		}
+		return -1;
+	}
+   
+    public int getBalance()
     {
         // Get balance
         return 0;
@@ -73,13 +87,13 @@ public class Database
         return 0;
     }
     
-    public boolean withdraw(String holder, String password, int amount)
+    public void withdraw(int amount)
     {
         // Withdraw
-        return true;
+       
     }
     
-    public boolean deposit(String holder, String password, int amount)
+    public boolean deposit(int amount)
     {
         // Deposit
         return true;

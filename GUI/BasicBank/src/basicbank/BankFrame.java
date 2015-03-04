@@ -99,7 +99,7 @@ public class BankFrame extends JFrame
         
         ActionListener use_click = new ActionListener(){
             public void actionPerformed(ActionEvent event){
-                JFrame add = new LoginFrame();
+                JFrame add = new LoginFrame(data);
                 add.setTitle("Login to Account");
                 add.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 add.setVisible(true);
