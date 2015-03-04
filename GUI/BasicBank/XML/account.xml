@@ -19,7 +19,7 @@
 				<class>javax.swing.JButton</class>
 				<property>
 					<name>text</name>
-					<value><string>Interest</string></value>
+					<value><string>Deposit</string></value>
 				</property>
 			</bean>
 		</cell>
@@ -47,16 +47,6 @@
 				</property>
 			</bean>
 		</cell>
-		<cell gridx="1" gridy="2" fill="HORIZONTAL" weightx="100">
-			<bean id="balance">
-				<class>javax.swing.JTextArea</class>
-				<property>
-		          <name>border</name>
-		          <value><bean>
-		            <class>javax.swing.border.EtchedBorder</class>
-		          </bean></value>
-		        </property>
-		    </bean>
-		</cell>
+		
 	</row>
 </gridbag>
