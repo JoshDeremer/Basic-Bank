@@ -55,7 +55,7 @@ public class AddAccountFrame extends JFrame
                 text_Name = name.getText();
                 text_Psswrd = password.getText();
                 text_balance = Integer.parseInt(balance.getText());
-                System.out.println("in here");
+                
           
                if(checking.isSelected())
 

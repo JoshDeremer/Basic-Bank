@@ -38,24 +38,17 @@ public class BasicBank
                 //ArrayList<Account> accounts = new ArrayList<Account>();
 
                 ArrayList<Account> accounts = new ArrayList<Account>();
-                //accounts.add(new CheckingAccount(300, "mine", "pass"));
-               //accounts.add(new CheckingAccount(300, "yours", "pass"));
-               //accounts.add(new CheckingAccount(300, "mine", "pass"));
+               accounts.add(new CheckingAccount(300, "mine", "pass"));
+               accounts.add(new CheckingAccount(300, "yours", "pass"));
+               accounts.add(new CheckingAccount(300, "mine", "pass"));
                 
-               try{
-                File file = new File("XML/Database.xml");
-                file.createNewFile();
-                Database database = new Database(accounts,file);
+            
+                
+                Database database = new Database(accounts,new File("Database.xml"));
                 JFrame frame = new BankFrame(database);
                 init(frame,"Basic-Bank");
-                }
-                catch(IOException e){
-                    
-                }
-                
-
-                
-            }
+         }
+            
         });
     }
     

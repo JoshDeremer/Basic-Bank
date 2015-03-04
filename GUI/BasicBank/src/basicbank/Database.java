@@ -34,9 +34,13 @@ public class Database
         //parse document for data
     }
     
-    public Database(ArrayList<Account> init, File file)
+    public Database(ArrayList<Account> db, File file)
     {
-        db = init;
+        this.db = db;
+        this.file=file;
+        XMLIO io = new XMLIO();
+        
+        Document doc = io.ReadXMLFile(file);
     }
     
     public void addAccount(String holder, String password, int balance, boolean checking)
@@ -99,12 +103,6 @@ public class Database
         return true;
     }
     
-    public boolean interest()
-    {
-        // Perform interest action
-        return true;
-    }
-    
     private void writeToFile()
     {
         // Write the db to a file?
@@ -126,4 +124,21 @@ public class Database
         
         return holders;
     }
+    
+    public ArrayList<Account> getAccounts(){   
+        return db;
+    }
+    
+    public Account setAccount(String holder, String password){
+        int temp=0;
+        for(int i = 0; i<db.size(); i++){
+        if(holder.compareTo(db.get(i).holder)==0 
+                && (password.compareTo(db.get(i).password))==0) {
+            temp = i;
+        }
+        
+        }
+        return db.get(temp);
+    }
+    
 }

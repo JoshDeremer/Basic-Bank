@@ -24,7 +24,7 @@ public class AccountFrame extends JFrame
     private JTextArea value;
     
     @SuppressWarnings("unchecked")
-    public AccountFrame(Database data)
+    public AccountFrame(Database data, Account acct)
     {
         File file = new File("XML/account.xml");
         gridbag = new GridBagPane(file);
