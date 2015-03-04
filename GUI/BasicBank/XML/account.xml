@@ -39,7 +39,7 @@
 	</row>
 	<row>
 		<cell anchor="EAST" gridx="0" gridy="2">
-			<bean>
+			<bean id="current_balance">
 				<class>javax.swing.JLabel</class>
 				<property>
 					<name>text</name>
