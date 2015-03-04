@@ -15,6 +15,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import javax.swing.*;
+import java.util.*;
 
 public class LoginFrame extends JFrame
 {
@@ -28,6 +29,9 @@ public class LoginFrame extends JFrame
     private JLabel captcha2;
     private JTextArea captcha_try;
     private JLabel failure;
+    private String text_holder;
+    private String text_psswrd;
+    private Account acct_Permssn;
     
     @SuppressWarnings("unchecked")
     public LoginFrame(Database data)
@@ -49,10 +53,21 @@ public class LoginFrame extends JFrame
         ActionListener login_click = new ActionListener(){
             public void actionPerformed(ActionEvent event){
                 //login
+               ArrayList<Account> temp = data.getAccounts();
+               text_holder = login.getText();
+               text_psswrd = password.getText();
+               
+               for(Account a : temp)
+                   if(a.holder.equalsIgnoreCase(text_holder) 
+                                    && a.password.equals(text_psswrd))
+                   {
+                       acct_Permssn = data.setAccount(text_holder, text_psswrd);
+                       showAccount(acct_Permssn, data);
+                   }
+                   else 
+                       failure.setText("Sorry Wrong Password!");
+                 
                 
-                
-                if(true)
-                    showAccount("John", data);
             }};
         
         ActionListener cancel_click = new ActionListener(){
@@ -69,10 +84,10 @@ public class LoginFrame extends JFrame
         this.setResizable(false);
     }
     
-    public void showAccount(String account, Database data)
+    public void showAccount(Account acct, Database data)
     {
-        JFrame add = new AccountFrame(data);
-        add.setTitle(account + "'s Account");
+        JFrame add = new AccountFrame(data, acct);
+        add.setTitle(acct.holder + "'s Account");
         add.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         add.setVisible(true);
     }
