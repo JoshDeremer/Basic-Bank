@@ -44,10 +44,6 @@ public abstract class Account
         return null;
     }
     
-    protected int getBalance(){
-        return (int)balance;
-    }
-    
     protected Boolean isOverdrawn(String password)
     {
         if(authenticate(password))

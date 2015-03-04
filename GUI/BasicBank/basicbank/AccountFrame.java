@@ -22,10 +22,9 @@ public class AccountFrame extends JFrame
     private JButton withdraw_button;
     private JButton deposit_button;
     private JTextArea value;
-    private JLabel current_balance;
     
     @SuppressWarnings("unchecked")
-    public AccountFrame(Database data, Account acct)
+    public AccountFrame()
     {
         File file = new File("XML/account.xml");
         gridbag = new GridBagPane(file);
@@ -34,16 +33,10 @@ public class AccountFrame extends JFrame
         withdraw_button = (JButton) gridbag.get("withdraw_button");
         deposit_button = (JButton) gridbag.get("deposit_button");
         value = (JTextArea) gridbag.get("value");
-        current_balance = (JLabel) gridbag.get("current_balance");
-        
-       current_balance.setText("Current Balance: " + Integer.toString(acct.getBalance()));
-        
         
         ActionListener withdraw_click = new ActionListener(){
             public void actionPerformed(ActionEvent event){
                 // withdraw
-                
-                //data.withdraw
             }};
         
         ActionListener deposit_click = new ActionListener(){

@@ -9,7 +9,6 @@ package basicbank;
 /**
  *
  * @author Josh
- * @author of Database communication Kei'Shawn
  */
 
 import java.awt.*;
@@ -23,15 +22,13 @@ public class AddAccountFrame extends JFrame
     private JButton save_button;
     private JButton cancel_button;
     private JTextArea name;
-    private JTextArea password;
+    private JPasswordField password;
     private JTextArea balance;
     private JRadioButton checking;
     private JRadioButton savings;
-    private String text_Name, text_Psswrd;
-    private int text_balance;
     
     @SuppressWarnings("unchecked")
-    public AddAccountFrame(Database data)
+    public AddAccountFrame()
     {
         File file = new File("XML/addAccount.xml");
         gridbag = new GridBagPane(file);
@@ -40,7 +37,7 @@ public class AddAccountFrame extends JFrame
         save_button = (JButton) gridbag.get("save_button");
         cancel_button = (JButton) gridbag.get("cancel_button");
         name = (JTextArea) gridbag.get("name");
-        password = (JTextArea) gridbag.get("password");
+        password = (JPasswordField) gridbag.get("password");
         balance = (JTextArea) gridbag.get("balance");
         checking = (JRadioButton) gridbag.get("checking");
         savings = (JRadioButton) gridbag.get("savings");
@@ -51,20 +48,7 @@ public class AddAccountFrame extends JFrame
         
         ActionListener save_click = new ActionListener(){
             public void actionPerformed(ActionEvent event){
-                //Database stored_Accts = new Database(file);
-                text_Name = name.getText();
-                text_Psswrd = password.getText();
-                text_balance = Integer.parseInt(balance.getText());
-                
-          
-               if(checking.isSelected())
-
-                   data.addAccount(text_Name, text_Psswrd, text_balance, true);
-               if(savings.isSelected())
-                   data.addAccount(text_Name, text_Psswrd, text_balance, false);
-              
-               dispose();
-
+                //save
             }};
         
         ActionListener cancel_click = new ActionListener(){

@@ -32,20 +32,11 @@
 				</property>
 			</bean>
 		</cell>
-		<cell gridx="3" gridy="0" fill="BOTH" weightx="100">
-			<bean id="interest_button">
-				<class>javax.swing.JButton</class>
-				<property>
-					<name>text</name>
-					<value><string>Interest</string></value>
-				</property>
-			</bean>
-		</cell>
 	</row>
 	<row>
 		<cell gridx="1" gridy="1" gridwidth="2" fill="BOTH" weighty="100" weightx="100">
-			<bean id="account">
-				<class>javax.swing.JList</class>
+			<bean id="scroller">
+				<class>javax.swing.JScrollPane</class>
 				<property>
 					<name>visibleRowCount</name>
 					<value><int>10</int></value>

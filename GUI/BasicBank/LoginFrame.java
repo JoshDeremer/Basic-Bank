@@ -15,7 +15,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import javax.swing.*;
-import java.util.*;
 
 public class LoginFrame extends JFrame
 {
@@ -23,18 +22,15 @@ public class LoginFrame extends JFrame
     private JButton login_button;
     private JButton cancel_button;
     private JTextArea login;
-    private JTextArea password;
+    private JPasswordField password;
     // Captcha labels and text area defined.
     private JLabel captcha;
     private JLabel captcha2;
     private JTextArea captcha_try;
     private JLabel failure;
-    private String text_holder;
-    private String text_psswrd;
-    private Account acct_Permssn;
     
     @SuppressWarnings("unchecked")
-    public LoginFrame(Database data)
+    public LoginFrame()
     {
         File file = new File("XML/login.xml");
         gridbag = new GridBagPane(file);
@@ -43,31 +39,27 @@ public class LoginFrame extends JFrame
         login_button = (JButton) gridbag.get("login_button");
         cancel_button = (JButton) gridbag.get("cancel_button");
         login = (JTextArea) gridbag.get("login");
-        password = (JTextArea) gridbag.get("password");
+        password = (JPasswordField) gridbag.get("password");
         // Captcha labels and text area instantiated. Use after this point.
         captcha = (JLabel) gridbag.get("captcha");
         captcha2 = (JLabel) gridbag.get("captcha2");
         captcha_try = (JTextArea) gridbag.get("captcha_try");
         failure = (JLabel) gridbag.get("failure");
+        captcha.setVisible(false);
+        captcha2.setVisible(false);
+        captcha_try.setVisible(false);
+        failure.setVisible(false);
         
         ActionListener login_click = new ActionListener(){
             public void actionPerformed(ActionEvent event){
                 //login
-               ArrayList<Account> temp = data.getAccounts();
-               text_holder = login.getText();
-               text_psswrd = password.getText();
-               
-               for(Account a : temp)
-                   if(a.holder.equalsIgnoreCase(text_holder) 
-                                    && a.password.equals(text_psswrd))
-                   {
-                       acct_Permssn = data.setAccount(text_holder, text_psswrd);
-                       showAccount(acct_Permssn, data);
-                   }
-                   else 
-                   {  failure.setText("Sorry Wrong Password!");}
-                 
-                
+                //if(true)
+                    showAccount("John");
+                    captcha.setVisible(true);
+                    captcha2.setVisible(true);
+                    failure.setVisible(true);
+                    captcha_try.setVisible(true);
+                    pack();
             }};
         
         ActionListener cancel_click = new ActionListener(){
@@ -84,10 +76,10 @@ public class LoginFrame extends JFrame
         this.setResizable(false);
     }
     
-    public void showAccount(Account acct, Database data)
+    public void showAccount(String account)
     {
-        JFrame add = new AccountFrame(data, acct);
-        add.setTitle(acct.holder + "'s Account");
+        JFrame add = new AccountFrame();
+        add.setTitle(account + "'s Account");
         add.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         add.setVisible(true);
     }
