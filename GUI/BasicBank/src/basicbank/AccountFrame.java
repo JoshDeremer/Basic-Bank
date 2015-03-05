@@ -45,6 +45,7 @@ public class AccountFrame extends JFrame
                 
                 data.withdraw(Integer.parseInt(value.getText()), acct);
                 current_balance.setText("Current Balance: " + Integer.toString(acct.getBalance()));
+                data.writeToFile();
             }};
         
         ActionListener deposit_click = new ActionListener(){

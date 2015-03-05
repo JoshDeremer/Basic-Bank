@@ -116,7 +116,7 @@ public class Database
         acct.deposit(amount);
     }
     
-    private void writeToFile()
+    public void writeToFile()
     {
        try 
         {
@@ -149,7 +149,7 @@ public class Database
 
             reader.close();
 
-            Files.delete(FileSystems.getDefault().getPath("", "XML/Database.xml"));
+           // Files.delete(FileSystems.getDefault().getPath("", "XML/Database.xml"));
 
 
         } catch (Exception e) {
