@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Bank>
+  <Account>
+    <Holder>mine</Holder>
+    <Password>pass</Password>
+    <Balance>300.0</Balance>
+    <AccountType>Checking</AccountType>
+  </Account>
+  <Account>
+    <Holder>yours</Holder>
+    <Password>pass</Password>
+    <Balance>300.0</Balance>
+    <AccountType>Checking</AccountType>
+  </Account>
+  <Account>
+    <Holder>mine</Holder>
+    <Password>pass</Password>
+    <Balance>300.0</Balance>
+    <AccountType>Checking</AccountType>
+  </Account>
+  <Account>
+    <Holder>kei</Holder>
+    <Password>1234</Password>
+    <Balance>900.0</Balance>
+    <AccountType>Savings</AccountType>
+  </Account>
+</Bank>
