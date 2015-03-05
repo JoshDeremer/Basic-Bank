@@ -26,7 +26,7 @@ public class BankFrame extends JFrame
     private JButton remove_button;
     private JButton use_button;
     //private JButton interest_button;
-    private JList account=new JList();
+    private JList account;
     private JScrollPane scroller;
     
     @SuppressWarnings("unchecked")
@@ -43,10 +43,11 @@ public class BankFrame extends JFrame
         //account = (JList) gridbag.get("account");
         
         
-        scroller=(JScrollPane) gridbag.get("scroller");
-        scroller=new JScrollPane(account);
-        scroller.setPreferredSize(new Dimension(200,200));
         initList(accounts);
+        scroller=(JScrollPane) gridbag.get("scroller");
+        scroller.setViewportView(account);
+        //scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+        account.setVisibleRowCount(10);
         ActionListener add_click = new ActionListener(){
             public void actionPerformed(ActionEvent event){
                 JFrame add = new AddAccountFrame();
@@ -94,6 +95,6 @@ public class BankFrame extends JFrame
         DefaultListModel<String> list = new DefaultListModel<String>();
         for (int i = 0; i < accounts.size(); i++)
             list.addElement(accounts.get(i));
-        account.setModel(list);
+        account=new JList(list);
     }
 }
