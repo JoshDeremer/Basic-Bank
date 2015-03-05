@@ -8,8 +8,25 @@ package basicbank;
 
 import java.io.File;
 import java.util.ArrayList;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
 import xmlio.XMLIO;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Text;
+import java.lang.Exception;
+import javax.xml.parsers.ParserConfigurationException;
+
 
 /**
  *
@@ -26,11 +43,7 @@ public class Database
     public Database(File file)
     {
         db = new ArrayList<Account>();
-        this.file=file;
-        XMLIO io = new XMLIO();
-        
-        Document doc = io.ReadXMLFile(file);
-        
+        this.file=file;        
         //parse document for data
     }
     
@@ -105,7 +118,44 @@ public class Database
     
     private void writeToFile()
     {
-        // Write the db to a file?
+       try 
+        {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); 
+            DocumentBuilder builder;
+
+            builder = factory.newDocumentBuilder();
+
+            Document doc =  builder.newDocument();
+
+            //root element
+            Element rootElement = doc.createElement("Bank"); 
+            doc.appendChild(rootElement);
+
+            //add account elements
+            Element name = doc.createElement("Account");
+            name.appendChild(doc.createTextNode("DarylTest"));
+            rootElement.appendChild(name);
+
+            XMLIO io = new XMLIO();
+
+            io.WriteXMLFile(doc, new File("XML/Database.xml"));
+
+            BufferedReader reader = new BufferedReader(new FileReader("XML/Database.xml"));
+            String line = null, teststr2="";
+
+            while ((line = reader.readLine()) != null) {
+                teststr2 += line;
+            }
+
+            reader.close();
+
+            Files.delete(FileSystems.getDefault().getPath("", "XML/Database.xml"));
+
+
+        } catch (Exception e) {
+                e.printStackTrace();
+        }{}
+
     }
     
     public int getSize()
