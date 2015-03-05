@@ -128,19 +128,29 @@ public class Database
             Document doc =  builder.newDocument();
             XMLIO io = new XMLIO(); 
             
-            
-            for(Account a: db){
-                
             //root element
-            Element rootElement = doc.createElement("Bank"); 
-            doc.appendChild(rootElement);
-
+              Element rootElement = doc.createElement("Bank"); 
+            doc.appendChild(rootElement); 
+           
+            for(Account a: db){
+               
             //add account elements
             Element acct_Tag = doc.createElement("Account");
-            acct_Tag.appendChild(doc.createTextNode(a.holder));
-            acct_Tag.appendChild(doc.createTextNode(a.password));
-            acct_Tag.appendChild(doc.createTextNode(Double.toString(a.balance)));
-            acct_Tag.appendChild(doc.createTextNode(a.accType));
+                Element holder = doc.createElement("Holder");
+                acct_Tag.appendChild(holder);
+                holder.appendChild(doc.createTextNode(a.holder));
+                
+                Element psswrd = doc.createElement("Password");
+                acct_Tag.appendChild(psswrd);
+                psswrd.appendChild(doc.createTextNode(a.password));
+                
+                Element balance = doc.createElement("Balance");
+                acct_Tag.appendChild(balance);
+                balance.appendChild(doc.createTextNode(Double.toString(a.balance)));
+                
+                Element accType = doc.createElement("AccountType");
+                acct_Tag.appendChild(accType);
+                accType.appendChild(doc.createTextNode(a.accType));
             rootElement.appendChild(acct_Tag);
 
             io.WriteXMLFile(doc, new File("XML/Database.xml"));
