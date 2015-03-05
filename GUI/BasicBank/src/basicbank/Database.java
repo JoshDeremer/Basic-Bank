@@ -126,17 +126,22 @@ public class Database
             builder = factory.newDocumentBuilder();
 
             Document doc =  builder.newDocument();
-
+            XMLIO io = new XMLIO(); 
+            
+            
+            for(Account a: db){
+                
             //root element
             Element rootElement = doc.createElement("Bank"); 
             doc.appendChild(rootElement);
 
             //add account elements
-            Element name = doc.createElement("Account");
-            name.appendChild(doc.createTextNode("DarylTest"));
-            rootElement.appendChild(name);
-
-            XMLIO io = new XMLIO();
+            Element acct_Tag = doc.createElement("Account");
+            acct_Tag.appendChild(doc.createTextNode(a.holder));
+            acct_Tag.appendChild(doc.createTextNode(a.password));
+            acct_Tag.appendChild(doc.createTextNode(Double.toString(a.balance)));
+            acct_Tag.appendChild(doc.createTextNode(a.accType));
+            rootElement.appendChild(acct_Tag);
 
             io.WriteXMLFile(doc, new File("XML/Database.xml"));
 
@@ -148,6 +153,7 @@ public class Database
             }
 
             reader.close();
+            }
 
            // Files.delete(FileSystems.getDefault().getPath("", "XML/Database.xml"));
 
