@@ -23,7 +23,7 @@ public class LoginFrame extends JFrame
     private JButton login_button;
     private JButton cancel_button;
     private JTextArea login;
-    private JTextArea password;
+    private JPasswordField password;
     // Captcha labels and text area defined.
     private JLabel captcha;
     private JLabel captcha2;
@@ -43,12 +43,16 @@ public class LoginFrame extends JFrame
         login_button = (JButton) gridbag.get("login_button");
         cancel_button = (JButton) gridbag.get("cancel_button");
         login = (JTextArea) gridbag.get("login");
-        password = (JTextArea) gridbag.get("password");
+        password = (JPasswordField) gridbag.get("password");
         // Captcha labels and text area instantiated. Use after this point.
         captcha = (JLabel) gridbag.get("captcha");
         captcha2 = (JLabel) gridbag.get("captcha2");
         captcha_try = (JTextArea) gridbag.get("captcha_try");
         failure = (JLabel) gridbag.get("failure");
+        captcha.setVisible(false);
+        captcha2.setVisible(false);
+        captcha_try.setVisible(false);
+        failure.setVisible(false);
         
         ActionListener login_click = new ActionListener(){
             public void actionPerformed(ActionEvent event){
@@ -67,6 +71,12 @@ public class LoginFrame extends JFrame
                    }
                    else 
                    {  failure.setText("Sorry Wrong Password!");}
+                   
+                    captcha.setVisible(true);
+                    captcha2.setVisible(true);
+                    failure.setVisible(true);
+                    captcha_try.setVisible(true);
+                    pack();
                  
                 
             }};

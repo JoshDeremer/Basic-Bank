@@ -38,7 +38,7 @@
 		</cell>
 		<cell gridx="1" gridy="1" gridwidth="3" fill="HORIZONTAL" weightx="100">
 			<bean id="password">
-				<class>javax.swing.JTextArea</class>
+				<class>javax.swing.JPasswordField</class>
 				<property>
 		          <name>border</name>
 		          <value><bean>

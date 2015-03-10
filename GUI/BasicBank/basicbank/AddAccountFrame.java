@@ -23,7 +23,7 @@ public class AddAccountFrame extends JFrame
     private JButton save_button;
     private JButton cancel_button;
     private JTextArea name;
-    private JTextArea password;
+    private JPasswordField password;
     private JTextArea balance;
     private JRadioButton checking;
     private JRadioButton savings;
@@ -40,7 +40,7 @@ public class AddAccountFrame extends JFrame
         save_button = (JButton) gridbag.get("save_button");
         cancel_button = (JButton) gridbag.get("cancel_button");
         name = (JTextArea) gridbag.get("name");
-        password = (JTextArea) gridbag.get("password");
+        password = (JPasswordField) gridbag.get("password");
         balance = (JTextArea) gridbag.get("balance");
         checking = (JRadioButton) gridbag.get("checking");
         savings = (JRadioButton) gridbag.get("savings");
