@@ -49,6 +49,11 @@ public class LoginFrame extends JFrame
         captcha2 = (JLabel) gridbag.get("captcha2");
         captcha_try = (JTextArea) gridbag.get("captcha_try");
         failure = (JLabel) gridbag.get("failure");
+        captcha.setVisible(false);
+        captcha2.setVisible(false);
+        captcha_try.setVisible(false);
+        failure.setVisible(false);
+        
         
         ActionListener login_click = new ActionListener(){
             public void actionPerformed(ActionEvent event){
