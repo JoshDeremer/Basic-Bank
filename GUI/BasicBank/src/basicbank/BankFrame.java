@@ -27,8 +27,8 @@ public class BankFrame extends JFrame
     private JButton add_button;
     private JButton remove_button;
     private JButton use_button;
-    private JButton interest_button;
     private JList account;
+    private JScrollPane scroller;
     
     @SuppressWarnings("unchecked")
     public BankFrame(Database data)
@@ -40,10 +40,12 @@ public class BankFrame extends JFrame
         add_button = (JButton) gridbag.get("add_button");
         remove_button = (JButton) gridbag.get("remove_button");
         use_button = (JButton) gridbag.get("use_button");
-        interest_button = (JButton) gridbag.get("interest_button");
-        account = (JList) gridbag.get("account");
         
         initList(data);
+        scroller=(JScrollPane) gridbag.get("scroller");
+        scroller.setViewportView(account);
+        //scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+        account.setVisibleRowCount(10);
         
         WindowListener frame_focus = new WindowListener(){
             @Override
@@ -106,20 +108,10 @@ public class BankFrame extends JFrame
                 add.setVisible(true);
             }};
         
-        ActionListener interest_click = new ActionListener(){
-            public void actionPerformed(ActionEvent event){
-                // interest
-                JFrame add = new InterestFrame();
-                add.setTitle("Interest");
-                add.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                add.setVisible(true);
-            }};
-        
         this.addWindowListener(frame_focus);
         add_button.addActionListener(add_click);
         remove_button.addActionListener(remove_click);
         use_button.addActionListener(use_click);
-        interest_button.addActionListener(interest_click);
         
         pack();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -135,6 +127,6 @@ public class BankFrame extends JFrame
         {
             list.addElement(str);
         }
-        account.setModel(list);
+        account=new JList(list);
     }
 }

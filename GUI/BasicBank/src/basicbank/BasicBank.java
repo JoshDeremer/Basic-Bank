@@ -15,6 +15,7 @@ import java.io.File;
 import java.util.ArrayList;
 import javax.swing.*;
 import java.io.IOException;
+import javax.swing.UIManager.*;
 
 public class BasicBank 
 {
@@ -24,6 +25,17 @@ public class BasicBank
      */
     public static void main(String[] args) 
     {
+        try {
+          for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels())
+          {
+              if ("Nimbus".equals(info.getName()))
+              {
+                  UIManager.setLookAndFeel(info.getClassName());
+                  break;
+              }
+           }
+        } catch (Exception e) {}
+        
         EventQueue.invokeLater(new Runnable()
         {
             public void run()
