@@ -21,6 +21,7 @@ public abstract class Account
     
     public Account(double balance, String holder, String password, String accType)
     {
+        //Kei'Shawn made adjusments
         this.balance = balance;
         this.holder = holder;
         this.password = password;

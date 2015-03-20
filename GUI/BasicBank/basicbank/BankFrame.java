@@ -56,7 +56,7 @@ public class BankFrame extends JFrame
             @Override
             public void windowClosing(WindowEvent e) {
                 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                 data.writeToFile();
+                 data.writeToFile(); //Kei'Shawn
             }
 
             @Override

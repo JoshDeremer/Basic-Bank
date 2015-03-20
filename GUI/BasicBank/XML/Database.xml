@@ -18,4 +18,22 @@
     <Balance>300.0</Balance>
     <AccountType>Checking</AccountType>
   </Account>
+  <Account>
+    <Holder>KeiShawn</Holder>
+    <Password>12345</Password>
+    <Balance>100.0</Balance>
+    <AccountType>Checking</AccountType>
+  </Account>
+  <Account>
+    <Holder>KeiShawn</Holder>
+    <Password>12345</Password>
+    <Balance>100.0</Balance>
+    <AccountType>Checking</AccountType>
+  </Account>
+  <Account>
+    <Holder>KeiShawn</Holder>
+    <Password>1234</Password>
+    <Balance>400.0</Balance>
+    <AccountType>Checking</AccountType>
+  </Account>
 </Bank>

@@ -31,6 +31,7 @@ import javax.xml.parsers.ParserConfigurationException;
 /**
  *
  * @author Josh
+ * @author Kei'Shawn 
  */
 public class Database 
 {
@@ -58,6 +59,7 @@ public class Database
     
     public void addAccount(String holder, String password, int balance, boolean checking)
     {
+        //Kei'Shawn
         if(checking == true){
             CheckingAccount chck = new CheckingAccount(balance, holder, password, "Checking");
             db.add(chck);
@@ -72,7 +74,7 @@ public class Database
     
     public void removeAccount(String holder)
     {
-        // Remove account
+        // Kei'Shawn
         int index = getIndex(holder);
 		
 		if( index < 0)
@@ -106,18 +108,21 @@ public class Database
     
     public void withdraw(int amount, Account acct)
     {
-        // Withdraw
+        //@author Kei'Shawn
         if(verifyAcct(acct))
             acct.withdraw(amount);
     }
     
     public void deposit(int amount, Account acct)
     {
-        acct.deposit(amount);
+        //@author Kei'Shawn
+        if(verifyAcct(acct))
+            acct.deposit(amount);
     }
     
     public void writeToFile()
     {
+        //@author Kei'Shawn
        try 
         {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); 
@@ -196,6 +201,8 @@ public class Database
     }
     
     public Account setAccount(String holder, String password){
+        
+        //@author Kei'Shawn
         int temp=0;
         for(int i = 0; i<db.size(); i++){
         if(holder.compareTo(db.get(i).holder)==0 
@@ -208,6 +215,8 @@ public class Database
     }
     
     public boolean verifyAcct(Account acct){
+        
+        //@author Kei'Shawn
         boolean temp= false;
         for(Account a:db){
             if((a.holder.compareTo(acct.holder)==0) && (a.password.compareTo(acct.password)==0))
