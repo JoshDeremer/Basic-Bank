@@ -56,7 +56,7 @@ public class BasicBank
                 
             
                 
-                Database database = new Database(accounts,new File("Database.xml"));
+                Database database = new Database(accounts,new File("XML/Database.xml"));
                 JFrame frame = new BankFrame(database);
                 init(frame,"Basic-Bank");
          }

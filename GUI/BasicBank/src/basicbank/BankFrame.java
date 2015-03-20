@@ -15,6 +15,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.*;
@@ -27,7 +28,7 @@ public class BankFrame extends JFrame
     private JButton add_button;
     private JButton remove_button;
     private JButton use_button;
-    private JList account;
+    private JList account=new JList();
     private JScrollPane scroller;
     
     @SuppressWarnings("unchecked")
@@ -56,7 +57,7 @@ public class BankFrame extends JFrame
             @Override
             public void windowClosing(WindowEvent e) {
                 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                 data.writeToFile();
+                 data.writeToFile(); //Kei'Shawn
             }
 
             @Override
@@ -89,6 +90,19 @@ public class BankFrame extends JFrame
         ActionListener add_click = new ActionListener(){
             public void actionPerformed(ActionEvent event){
                 JFrame add = new AddAccountFrame(data);
+                
+                add.addWindowListener(new WindowAdapter() {
+                  public void windowActivated(WindowEvent e) {}
+                  public void windowClosed(WindowEvent e) {
+                    initList(data);
+                    System.out.println("werwer");
+                  }
+                  public void windowClosing(WindowEvent e) {}
+                  public void windowDeactivated(WindowEvent e) {}
+                  public void windowDeiconified(WindowEvent e) {}
+                  public void windowIconified(WindowEvent e) {}
+                  public void windowOpened(WindowEvent e) {}
+                });
                 add.setTitle("Add Account");
                 add.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 add.setVisible(true);
@@ -127,6 +141,6 @@ public class BankFrame extends JFrame
         {
             list.addElement(str);
         }
-        account=new JList(list);
+        account.setModel(list);
     }
 }
