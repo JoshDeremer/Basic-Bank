@@ -11,7 +11,7 @@ public abstract class Account
     protected double balance;
     protected String holder;
     protected String salt;
-    private byte[]saltArray=new byte[256];
+    private byte[]saltArray=new byte[32];
     protected String password;
     protected double rate = .2;
     protected String accType = "";
@@ -34,6 +34,7 @@ public abstract class Account
         
         SecureRandom random=new SecureRandom();
         random.nextBytes(saltArray);
+        salt=encoder.encodeToString(saltArray);
         
         password=createHash(passwordString);
          
