@@ -3,14 +3,21 @@ package basicbank;
 /**
  * Created by Daryl Ebanks for SSE 554 Project 1, Spring 2015
  */
+ import java.security.*;
+ import java.util.*;
 
 public abstract class Account 
 {
     protected double balance;
     protected String holder;
+    protected String salt;
+    private byte[]saltArray=new byte[256];
     protected String password;
     protected double rate = .2;
     protected String accType = "";
+    private MessageDigest alg;
+    private Base64.Encoder encoder=Base64.getEncoder();
+    private Base64.Decoder decoder=Base64.getDecoder();
     
     public enum CompoundResult
     {
@@ -19,12 +26,18 @@ public abstract class Account
         PENALTY
     };
     
-    public Account(double balance, String holder, String password, String accType)
+    public Account(double balance, String holder, String passwordString, String accType)
     {
         //Kei'Shawn made adjusments
         this.balance = balance;
         this.holder = holder;
-        this.password = password;
+        
+        SecureRandom random=new SecureRandom();
+        random.nextBytes(saltArray);
+        
+        password=createHash(passwordString);
+         
+        
         this.accType = accType;
     }
     
@@ -58,11 +71,26 @@ public abstract class Account
     
     protected abstract CompoundResult compoundInterest();
     
-    protected Boolean authenticate(String password)
+    protected String createHash(String passwordString)
     {
-        if(this.password.compareTo(password) == 0)
-            return true;
-        
-        return false;
+        byte[]pwStringBytes=passwordString.getBytes();
+        byte[]temp=new byte[pwStringBytes.length+saltArray.length];
+        System.arraycopy(pwStringBytes,0,temp,0,pwStringBytes.length);
+        System.arraycopy(saltArray,0,temp,pwStringBytes.length,saltArray.length);
+        try
+        {
+           alg=MessageDigest.getInstance("SHA-256");         
+           alg.update(temp);
+           byte[]passwordArray=alg.digest();
+           return (encoder.encodeToString(passwordArray));
+        }
+        catch(Exception e){
+        return "A";}
+    }
+    
+    protected boolean authenticate(String attempt)
+    {
+        String attemptHash=createHash(attempt);
+        return (attemptHash.compareTo(password)==0);
     }
 }

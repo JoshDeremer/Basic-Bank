@@ -45,7 +45,6 @@ public class BankFrame extends JFrame
         initList(data);
         scroller=(JScrollPane) gridbag.get("scroller");
         scroller.setViewportView(account);
-        //scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
         account.setVisibleRowCount(10);
         
         WindowListener frame_focus = new WindowListener(){
@@ -95,7 +94,6 @@ public class BankFrame extends JFrame
                   public void windowActivated(WindowEvent e) {}
                   public void windowClosed(WindowEvent e) {
                     initList(data);
-                    System.out.println("werwer");
                   }
                   public void windowClosing(WindowEvent e) {}
                   public void windowDeactivated(WindowEvent e) {}

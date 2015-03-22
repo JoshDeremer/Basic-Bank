@@ -55,26 +55,11 @@
 		<cell gridx="0" gridy="2" gridwidth="2">
 			<bean id="captcha">
 				<class>javax.swing.JLabel</class>
-				<property>
-					<name>text</name>
-					<value><string>A</string></value>
-				</property>
 			</bean>
 		</cell>
    </row>
    <row>
-		<cell gridx="0" gridy="3" gridwidth="2">
-			<bean id="captcha2">
-				<class>javax.swing.JLabel</class>
-				<property>
-					<name>text</name>
-					<value><string>B</string></value>
-				</property>
-			</bean>
-		</cell>
-   </row>
-   <row>
-		<cell gridx="0" gridy="4" gridwidth="2" fill="HORIZONTAL">
+		<cell gridx="0" gridy="3" gridwidth="2" fill="HORIZONTAL">
 			<bean id="captcha_try">
 				<class>javax.swing.JTextArea</class>
 				<property>
@@ -90,7 +75,7 @@
    
    
 	<row>
-		<cell anchor="WEST" gridx="0" gridy="5" ipadx="25">
+		<cell anchor="WEST" gridx="0" gridy="4" ipadx="25">
 			<bean id="login_button">
 				<class>javax.swing.JButton</class>
 				<property>
@@ -99,7 +84,7 @@
 				</property>
 			</bean>
 		</cell>
-		<cell anchor="EAST" gridx="1" gridy="5" ipadx="25">
+		<cell anchor="EAST" gridx="1" gridy="4" ipadx="25">
 			<bean id="cancel_button">
 				<class>javax.swing.JButton</class>
 				<property>
@@ -113,7 +98,7 @@
    
    
 	<row>
-		<cell gridx="0" gridy="6" gridwidth="2">
+		<cell gridx="0" gridy="5" gridwidth="2">
 			<bean id="failure">
 				<class>javax.swing.JLabel</class>
 				<property>

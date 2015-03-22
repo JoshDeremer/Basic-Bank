@@ -54,7 +54,7 @@ public class Database
         this.file=file;
         XMLIO io = new XMLIO();
         
-        Document doc = io.ReadXMLFile(file);
+        //Document doc = io.ReadXMLFile(file);
     }
     
     public void addAccount(String holder, String password, int balance, boolean checking)
@@ -108,16 +108,12 @@ public class Database
     
     public void withdraw(int amount, Account acct)
     {
-        //@author Kei'Shawn
-        if(verifyAcct(acct))
-            acct.withdraw(amount);
+        acct.withdraw(amount);
     }
     
     public void deposit(int amount, Account acct)
     {
-        //@author Kei'Shawn
-        if(verifyAcct(acct))
-            acct.deposit(amount);
+        acct.deposit(amount);
     }
     
     public void writeToFile()
@@ -144,6 +140,10 @@ public class Database
                 Element holder = doc.createElement("Holder");
                 acct_Tag.appendChild(holder);
                 holder.appendChild(doc.createTextNode(a.holder));
+                
+                Element salt = doc.createElement("Salt");
+                acct_Tag.appendChild(salt);
+                salt.appendChild(doc.createTextNode(a.salt));
                 
                 Element psswrd = doc.createElement("Password");
                 acct_Tag.appendChild(psswrd);
@@ -174,7 +174,8 @@ public class Database
 
 
         } catch (Exception e) {
-                e.printStackTrace();
+                //e.printStackTrace();
+                System.out.println("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh!");
         }{}
 
     }
@@ -205,8 +206,7 @@ public class Database
         //@author Kei'Shawn
         int temp=0;
         for(int i = 0; i<db.size(); i++){
-        if(holder.compareTo(db.get(i).holder)==0 
-                && (password.compareTo(db.get(i).password))==0) {
+        if(verifyAcct(holder,password)) {
             temp = i;
         }
         
@@ -214,15 +214,14 @@ public class Database
         return db.get(temp);
     }
     
-    public boolean verifyAcct(Account acct){
+    public boolean verifyAcct(String username,String pw){
         
-        //@author Kei'Shawn
-        boolean temp= false;
-        for(Account a:db){
-            if((a.holder.compareTo(acct.holder)==0) && (a.password.compareTo(acct.password)==0))
-                    temp = true;
-        }
-      return temp;
+      for (int i=0;i<db.size();i++)
+      {
+         if ((db.get(i).holder.compareTo(username)==0)&&db.get(i).authenticate(pw))
+            return true;
+      }
+      return false;
         
     }
 
