@@ -1,27 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Bank>
   <Account>
-    <Holder>mine</Holder>
-    <Password>pass</Password>
-    <Balance>300.0</Balance>
-    <AccountType>Checking</AccountType>
-  </Account>
-  <Account>
-    <Holder>yours</Holder>
-    <Password>pass</Password>
-    <Balance>300.0</Balance>
-    <AccountType>Checking</AccountType>
-  </Account>
-  <Account>
-    <Holder>mine</Holder>
-    <Password>pass</Password>
-    <Balance>300.0</Balance>
-    <AccountType>Checking</AccountType>
-  </Account>
-  <Account>
-    <Holder>Kei'Shawn</Holder>
-    <Password>1234</Password>
-    <Balance>390.0</Balance>
+    <Holder>1</Holder>
+    <Salt>LvXUn1Rx8yL7E1ilZ8CNSKjcxRB8vtPITjBW52fTCLI=</Salt>
+    <Password>tI9YK2EmrKMYjCoQpY/MtlvNIFWUYT8c+ILLa6p4tis=</Password>
+    <Balance>10.0</Balance>
     <AccountType>Checking</AccountType>
   </Account>
 </Bank>
