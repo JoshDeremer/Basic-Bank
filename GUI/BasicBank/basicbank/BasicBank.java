@@ -51,7 +51,6 @@ public class BasicBank
 
                 ArrayList<Account> accounts = new ArrayList<Account>();
                 accounts.add(new CheckingAccount(10,"1","1","Checking"));
-                
                 Database database = new Database(accounts,new File("XML/Database.xml"));
                 JFrame frame = new BankFrame(database);
                 init(frame,"Basic-Bank");
