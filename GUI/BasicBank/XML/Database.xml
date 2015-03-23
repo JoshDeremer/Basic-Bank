@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Bank>
   <Account>
-    <Holder>1</Holder>
-    <Salt>LvXUn1Rx8yL7E1ilZ8CNSKjcxRB8vtPITjBW52fTCLI=</Salt>
-    <Password>tI9YK2EmrKMYjCoQpY/MtlvNIFWUYT8c+ILLa6p4tis=</Password>
-    <Balance>10.0</Balance>
+    <Holder>mine</Holder>
+    <Salt>ZvWn8qx0hao7dtv51fFhzr6nRxMQXUY8io9f7ictH3A=</Salt>
+    <Password>/GxoFfXq2RJoaTdzram1OFCj/Xmj7P3Avidc2gcdOXg=</Password>
+    <Balance>300.0</Balance>
+    <AccountType>Checking</AccountType>
+  </Account>
+  <Account>
+    <Holder>yours</Holder>
+    <Salt>aGY10dRrn34QqdM4+tUp5ZGD24WnjBiWczcC9ekkZ4k=</Salt>
+    <Password>mX/PqdrSRdF56TUmxxdjDGbsP8mNnhnqb2utHTC981Q=</Password>
+    <Balance>300.0</Balance>
+    <AccountType>Savings</AccountType>
+  </Account>
+  <Account>
+    <Holder>mine</Holder>
+    <Salt>5TWyDEUYodurwFO3o19DcR1ZiImDdooiYyvpjaXMydM=</Salt>
+    <Password>2TrbOWu5BxqvpIEifJLnFAHipeTKgh/k/R1HXd1s2gs=</Password>
+    <Balance>300.0</Balance>
+    <AccountType>Checking</AccountType>
+  </Account>
+  <Account>
+    <Holder>Kei'Shawn</Holder>
+    <Salt>q6UtY4o0uMC3+k56oeo2PX4sULkaCXpHrCUYvb8fOHs=</Salt>
+    <Password>cs572c6bkJMI8OOjNTewm2sK+XJcj+QxV+Z0MdCiFHA=</Password>
+    <Balance>390.0</Balance>
     <AccountType>Checking</AccountType>
   </Account>
 </Bank>
